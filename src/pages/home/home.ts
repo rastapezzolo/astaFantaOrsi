@@ -6,9 +6,15 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  items: Array<{title: string, sum: number, icon: string}>;
+  roles: string[];
 
   constructor(public navCtrl: NavController) {
-
+  	this.roles = ['portieri', 'difensori','centrocampisti','attaccanti']
+  	this.items = []
+  	for(let role of this.roles){
+		this.items.push({ title: role, sum: 0, icon: 'football'})
+  	}
   }
 
 }

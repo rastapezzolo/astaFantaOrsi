@@ -1,14 +1,31 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>
+			Asta Fantacalcio Orsi
+		</ion-title>
+	</ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+	<ion-list>
+		<div ion-item *ngFor="let item of items">
+			<ion-icon name="{{item.icon}}" item-left></ion-icon>
+			{{item.title}}
+			<div item-left>
+
+				<ion-input type="number" placeholder="Inserisci nuovo prezzo"></ion-input>
+			</div>
+
+			<div class="item-note" item-right>
+				SOMMA :{{item.sum}}
+			</div>
+			<div class="item-note" item-right>
+				Media : 0
+			</div>
+			<div class="item-note" item-right>
+				Mediana : 0
+			</div>
+		</div>
+
+	</ion-list>
 </ion-content>
