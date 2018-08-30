@@ -7,17 +7,23 @@
 </ion-header>
 
 <ion-content padding>
-	<ion-list>
-		<div ion-item *ngFor="let item of items">
+	<ion-list *ngFor="let item of items; let i = index">
+		<div ion-item>
 			<ion-icon name="{{item.icon}}" item-left></ion-icon>
-			{{item.title}}
+			<ion-label item-left fixed>{{item.title}}</ion-label>
 			<div item-left>
-
-				<ion-input type="number" placeholder="Inserisci nuovo prezzo"></ion-input>
+				
+				<!-- <ion-input [(ngModel)]="data.ruolo" [value]="item.title" type="text" placeholder="Inserisci calciatore"></ion-input> -->
+				<ion-input [(ngModel)]="nome[i]" type="text" placeholder="Inserisci calciatore"></ion-input>
+				<ion-input [(ngModel)]="prezzo[i]" type="number" placeholder="Inserisci nuovo prezzo"></ion-input>
 			</div>
-
+			<div item-left>
+				<button ion-button (click)="addPlayer(item.title, i)">set</button>
+<!-- 				<button ion-button (click)="getPlayer(item.title)">get</button>
+ -->				<button ion-button (click)="clearPlayers(item.title)">clear</button>
+			</div>
 			<div class="item-note" item-right>
-				SOMMA :{{item.sum}}
+				SOMMA : {{sum[item.title]}}
 			</div>
 			<div class="item-note" item-right>
 				Media : 0
@@ -26,6 +32,6 @@
 				Mediana : 0
 			</div>
 		</div>
-
 	</ion-list>
+	<button ion-button (click)="clearAllPlayers()">clear</button>
 </ion-content>
